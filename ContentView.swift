@@ -49,13 +49,38 @@ struct ContentView : View {
     @State var ispaid : Bool = false
     @State var nums : [karch] = []
     
+    var total : Int {
+        var sum = 0
+        for i in nums {
+            sum += i.cost
+        }
+        return sum
+            }
+    var completed : Int {
+        var cs = 0
+        for i in nums {
+            if i.ispaid {
+                cs += i.cost
+            }
+        }
+        return cs
+    }
+    
     var body: some View {
         NavigationStack{
             VStack{
                 AddExpenseView(currex: $currkarch, paisa: $amount, addAction: addex)
+                
+                ExpenseListView(num1: $nums)
+                
+              Text(" total expense is : \(total)")
+                Text("paid expense is : \(completed) ")
+                    
+                
             }
+            .navigationTitle("my expense list")
         }
-        .navigationTitle("my expense list")
+        
     }
     
     func addex() {

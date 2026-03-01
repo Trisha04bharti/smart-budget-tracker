@@ -62,7 +62,7 @@ struct AddExpenseView : View {
                 .textFieldStyle(.roundedBorder)
             
             Button("add"){
-                
+                addAction()
             }
             .buttonStyle(.borderedProminent)
             .tint(.green)

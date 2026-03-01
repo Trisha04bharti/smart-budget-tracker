@@ -20,3 +20,23 @@
 //        }
 //    }
 //}
+
+import SwiftUI
+
+struct ExpenseListView : View {
+    
+    @Binding var num1 : [karch]
+    
+    var body: some View {
+        VStack{
+            
+            List {
+                ForEach( $num1) { $element in
+                    rowview(expense: $element)
+                }
+            }
+            
+        }
+        .background(Color.blue.opacity(0.3))
+    }
+}

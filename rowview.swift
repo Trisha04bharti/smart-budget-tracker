@@ -22,3 +22,38 @@
 //        .cornerRadius(0.8)
 //    }
 //}
+
+import SwiftUI
+
+struct rowview : View {
+    
+    @Binding var expense : karch
+    
+    var body: some View {
+        VStack{
+            
+            TextField("enter expense title", text: $expense.kname)
+                .font(.title)
+            
+//            TextField("enter amount", value: $expense.cost, format: .number)
+//                .font(.title)
+            
+            HStack {
+                Text("\(expense.cost)")
+//                
+//                Toggle("Paid", isOn: $expense.ispaid)
+//                                    .labelsHidden()
+                Toggle(isOn: $expense.ispaid) {
+                    HStack {
+                        Image(systemName: "creditcard")
+                        Text("Paid")
+                    }
+                }
+            }
+            
+
+            
+        }
+        .background(.brown.opacity(0.4))
+    }
+}
